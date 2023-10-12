@@ -9,6 +9,10 @@
         color: blue;
     }
 
+    button {
+        font-family: Times;
+    }
+
     #minuteStr {
         color: #ff0000;
         font-size: 20px;
