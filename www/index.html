@@ -38,6 +38,10 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+
+        $('#btnD').click(function(e) {
+            btnDClick(e);
+        });
         init();
     });
     
@@ -161,6 +165,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnD').prop('disabled', false);
         
     }
 
@@ -195,9 +200,22 @@
     function btnCClick(e){
         alarm();
         active = false;
+        var m = parseInt(period/60);
+        var s = parseInt(period - m*60);
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間：0");
-        $("#remain").html("残り時間：" + period);
+        $("#remain").html("残り時間：" + m + "分" + s + "秒");
+    }
+
+    function btnDClick(e){
+        alarm();
+        active = false;
+        period = 180;
+        var m = parseInt(period/60);
+        var s = parseInt(period - m*60);
+        period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
+        $("#time").html("経過時間：0");
+        $("#remain").html("残り時間：" + m + "分" + s + "秒");
     }
     
  
@@ -231,6 +249,7 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>  
+    <button id="btnD">3分</button>
     <input type="number" id="minute" value=5 >
     <input type="number" id="second" value=0 >
 </body>
